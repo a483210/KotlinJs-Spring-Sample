@@ -6,13 +6,11 @@ import com.xy.kotlin.sample.dashboard.server.removeItem
 import com.xy.kotlin.sample.dashboard.server.setItems
 import com.xy.kotlin.sample.dashboard.ui.view.ListView
 import com.xy.kotlin.sample.dashboard.ui.view.listView
-import com.xy.kotlin.sample.dashboard.utils.*
 import kotlinx.browser.window
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.css.*
 import kotlinx.html.BUTTON
-import kotlinx.html.InputType
 import kotlinx.html.js.onClickFunction
 import materialui.components.button.ButtonElementBuilder
 import materialui.components.button.button
@@ -20,8 +18,6 @@ import materialui.components.button.enums.ButtonVariant
 import materialui.components.grid.enums.GridJustify
 import materialui.components.grid.grid
 import org.w3c.dom.events.Event
-import org.w3c.fetch.Request
-import org.w3c.files.File
 import react.*
 import styled.css
 import styled.styledDiv
@@ -40,12 +36,6 @@ class HomePage : RComponent<RProps, HomePageState>() {
     }
 
     override fun componentDidMount() {
-        println("process ${process.env.NODE_ENV}")
-        println("process $NODE_ENV")
-        println("process $BUILD_ENV")
-        println("process $ACTION_ENV")
-        println("process ${env("js.serverUrl")}")
-
         MainScope().launch {
             val result = homeList()
 

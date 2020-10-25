@@ -1,8 +1,5 @@
 package com.xy.kotlin.sample.dashboard.server
 
-import com.xy.kotlin.sample.dashboard.utils.BUILD_ENV
-import com.xy.kotlin.sample.dashboard.utils.BuildEnv
-import com.xy.kotlin.sample.dashboard.utils.process
 import com.xy.kotlin.sample.server.error.ServerException
 import com.xy.kotlin.sample.server.model.system.result.ListResult
 import com.xy.kotlin.sample.server.model.system.result.ServerResult
@@ -24,16 +21,12 @@ import kotlinx.serialization.json.Json
 /**
  * 请求地址
  */
-val endpoint = if (BUILD_ENV == BuildEnv.WEBPACK)
-    window.location.origin
-else
-    process.env.js.serverUrl as String
+val endpoint = "http://localhost:9511" //window.location.origin
 
 /**
  * json解析
  */
 val json = Json {
-    window.location.origin
     ignoreUnknownKeys = true
 }
 

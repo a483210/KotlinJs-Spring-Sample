@@ -1,3 +1,0 @@
-js:
-  buildEnv: @jsBuildEnv@
-  actionEnv: local

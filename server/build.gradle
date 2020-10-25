@@ -49,17 +49,5 @@ processResources {
         }
 
         dependsOn(task)
-
-        def processResourcesTask = jsProject.tasks.getByName("processResources")
-        processResourcesTask.doFirst {
-            def currentProjectPath = project.projectDir.path
-            def startProjectPath = gradle.startParameter.projectDir.path
-
-            if (currentProjectPath != startProjectPath) {
-                jsProject.ext.jsBuildEnv = jsBuildEnv
-            }
-        }
-
-        processResourcesTask.outputs.upToDateWhen { false }
     }
 }
