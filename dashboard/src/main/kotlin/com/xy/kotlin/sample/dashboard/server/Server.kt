@@ -33,7 +33,6 @@ else
  * json解析
  */
 val json = Json {
-    window.location.origin
     ignoreUnknownKeys = true
 }
 
