@@ -1,10 +1,6 @@
 package com.xy.kotlin.sample.dashboard.server
 
-import com.xy.kotlin.sample.dashboard.utils.BUILD_ENV
-import com.xy.kotlin.sample.dashboard.utils.BuildEnv
-import com.xy.kotlin.sample.dashboard.utils.process
 import com.xy.kotlin.sample.server.error.ServerException
-import com.xy.kotlin.sample.server.model.system.result.ListResult
 import com.xy.kotlin.sample.server.model.system.result.ServerResult
 import com.xy.kotlin.sample.server.type.SystemError
 import io.ktor.client.HttpClient
@@ -24,16 +20,12 @@ import kotlinx.serialization.json.Json
 /**
  * 请求地址
  */
-val endpoint = if (BUILD_ENV == BuildEnv.WEBPACK)
-    window.location.origin
-else
-    process.env.js.serverUrl as String
+val endpoint = window.location.origin
 
 /**
  * json解析
  */
 val json = Json {
-    window.location.origin
     ignoreUnknownKeys = true
 }
 
@@ -55,15 +47,6 @@ suspend fun <T> get(path: String,
     val response = client.get<String>(endpoint + path, block)
 
     return parse(serializer, response)
-}
-
-/**
- * 发起get列表请求
- */
-suspend fun <T> getList(path: String,
-                        serializer: KSerializer<T>,
-                        block: HttpRequestBuilder.() -> Unit = {}): ListResult<T> {
-    return get(path, ListResult.serializer(serializer), block)
 }
 
 /**

@@ -12,21 +12,12 @@ dependencies {
 
     implementation "org.jetbrains:kotlin-react:${kotlinReactJsVersion}"
     implementation "org.jetbrains:kotlin-react-dom:${kotlinReactJsVersion}"
-    implementation "org.jetbrains:kotlin-react-router-dom:${kotlinReactRouterJsVersion}"
     implementation npm('react', reactJsVersion)
     implementation npm('react-dom', reactJsVersion)
-    implementation npm('react-router-dom', reactRouterJsVersion)
 
     implementation "org.jetbrains:kotlin-styled:${kotlinStyledVersion}"
     implementation npm('styled-components', styledComponentsVersion)
     implementation npm('inline-style-prefixer', stylePrefixer)
-
-    implementation "net.subroh0508.kotlinmaterialui:core:${kotlinMaterialUiVersion}"
-    implementation "net.subroh0508.kotlinmaterialui:lab:${kotlinMaterialUiVersion}"
-    implementation npm('@material-ui/core', materialUiVersion)
-    implementation npm('@material-ui/lab', materialUiLabVersion)
-    implementation npm('@material-ui/icons', materialUiIconsVersion)
-    implementation npm('yamljs', yamlJsVersion)
 
     implementation project(':common')
 }
@@ -37,18 +28,10 @@ kotlin {
         browser {
             webpackTask {
                 cssSupport.enabled = true
-
-                doFirst {
-                    copyResources(configFile.parent)
-                }
             }
 
             runTask {
                 cssSupport.enabled = true
-
-                doFirst {
-                    copyResources(configFile.parent)
-                }
             }
 
             testTask {
@@ -59,22 +42,5 @@ kotlin {
             }
         }
         binaries.executable()
-    }
-}
-
-private void copyResources(String path) {
-    copy {
-        from 'build/processedResources/js/main'
-        into path
-    }
-}
-
-import org.apache.tools.ant.filters.ReplaceTokens
-
-processResources {
-    filesMatching('**/application.yml') {
-        filter(ReplaceTokens,
-                tokens: ['jsBuildEnv': jsBuildEnv]
-        )
     }
 }

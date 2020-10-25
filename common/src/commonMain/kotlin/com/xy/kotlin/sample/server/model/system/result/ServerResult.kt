@@ -49,16 +49,6 @@ data class ServerResult<T>(
         }
 
         /**
-         * 成功的列表返回
-         *
-         * @param result 返回值
-         */
-        fun <T> success(result: List<T>): ServerResult<ListResult<T>> {
-            return ServerResult(ListResult.success(result), ServerCode.SUCCESS.code, null,
-                    Clock.System.now().toEpochMilliseconds())
-        }
-
-        /**
          * 成功空返回
          */
         fun success(): ServerResult<NullResult> {

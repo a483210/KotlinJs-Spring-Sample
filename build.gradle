@@ -15,7 +15,6 @@ buildscript {
         //kotlin
         kotlinVersion = '1.4.10'
         ktorVersion = '1.4.0'
-        kotlinLoggingVersion = '2.0.3'
 
         kserializationVersion = '1.0.0-RC'
         kotlinDatetimeVersion = '0.1.0'
@@ -34,13 +33,6 @@ buildscript {
         styledComponentsVersion = '~5.2.0'
         stylePrefixer = '~6.0.0'
         kotlinStyledVersion = '5.2.0-pre.124-kotlin-1.4.10'
-
-        materialUiVersion = '4.11.0'
-        materialUiLabVersion = '4.0.0-alpha.54'
-        materialUiIconsVersion = '4.9.1'
-
-        kotlinMaterialUiVersion = '0.5.3'
-        yamlJsVersion = '0.3.0'
     }
 
     repositories {
@@ -59,25 +51,4 @@ subprojects {
     apply plugin: 'idea'
 
     version = '1.0.0'
-}
-
-//get local
-String getLocalProperties(String key) {
-    return getLocalProperties(key, null)
-}
-
-String getLocalProperties(String key, String defValue) {
-    File file = rootProject.file('local.properties')
-    if (!file.exists()) {
-        return defValue
-    }
-
-    Properties properties = new Properties()
-    properties.load(file.newDataInputStream())
-
-    if (properties.containsKey(key)) {
-        return properties.getProperty(key)
-    }
-
-    return defValue
 }
