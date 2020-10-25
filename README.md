@@ -11,7 +11,7 @@ Kotlin/Js(前端) + Kotlin/SpringWebFlux(后端)
 ##### 1、本地添加**local.properties**文件
 
 > 文件内容
-importJs=false #启动server时是否引入dashboard工厂，默认false，分离开发时设置为false提高编译速度
+importJs=false #启动server时是否引入dashboard工程，默认false，分离开发时设置为false提高编译速度
 
 ##### 2、环境配置
 
