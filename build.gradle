@@ -1,0 +1,83 @@
+allprojects {
+    repositories {
+        mavenCentral()
+
+        maven { url 'https://dl.bintray.com/kotlin/kotlinx' }
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        maven { url 'https://kotlin.bintray.com/kotlin-js-wrappers' }
+
+        maven { url 'https://dl.bintray.com/subroh0508/maven' }
+    }
+}
+
+buildscript {
+    ext {
+        //kotlin
+        kotlinVersion = '1.4.10'
+        ktorVersion = '1.4.0'
+        kotlinLoggingVersion = '2.0.3'
+
+        kserializationVersion = '1.0.0-RC'
+        kotlinDatetimeVersion = '0.1.0'
+
+        //java
+        springBootVersion = '2.3.2.RELEASE'
+        jacksonVersion = "2.11.1"
+
+        //js
+        reactJsVersion = '^16.13.1'
+        kotlinReactJsVersion = '16.13.1-pre.124-kotlin-1.4.10'
+
+        reactRouterJsVersion = '5.1.2'
+        kotlinReactRouterJsVersion = '5.1.2-pre.124-kotlin-1.4.10'
+
+        styledComponentsVersion = '~5.2.0'
+        stylePrefixer = '~6.0.0'
+        kotlinStyledVersion = '5.2.0-pre.124-kotlin-1.4.10'
+
+        materialUiVersion = '4.11.0'
+        materialUiLabVersion = '4.0.0-alpha.54'
+        materialUiIconsVersion = '4.9.1'
+
+        kotlinMaterialUiVersion = '0.5.3'
+        yamlJsVersion = '0.3.0'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:${kotlinVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}"
+    }
+}
+
+subprojects {
+    apply plugin: 'idea'
+
+    version = '1.0.0'
+}
+
+//get local
+String getLocalProperties(String key) {
+    return getLocalProperties(key, null)
+}
+
+String getLocalProperties(String key, String defValue) {
+    File file = rootProject.file('local.properties')
+    if (!file.exists()) {
+        return defValue
+    }
+
+    Properties properties = new Properties()
+    properties.load(file.newDataInputStream())
+
+    if (properties.containsKey(key)) {
+        return properties.getProperty(key)
+    }
+
+    return defValue
+}

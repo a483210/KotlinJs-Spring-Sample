@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: server
+  profiles:
+    active: ${SMART_FOX_ACTIVE:local}
+
+server:
+  port: 9511
