@@ -13,7 +13,7 @@ Kotlin/Js(前端) + Kotlin/SpringWebFlux(后端)
 > 文件内容
 importJs=false #启动server时是否引入dashboard工厂，默认true，分离开发时设置为false提高编译数据
 
-#####2、环境配置
+##### 2、环境配置
 
 - 开发环境：<kbd>Modules Setting</kbd> > <kbd>Project</kbd> > <kbd>Project SDK</kbd> > <kbd>设置为Java1.8</kbd>
 
@@ -25,7 +25,7 @@ importJs=false #启动server时是否引入dashboard工厂，默认true，分离
 
 其他看build.gradle
 
-#####3、启动
+##### 3、启动
 
 **importJs为True**
 
@@ -35,18 +35,25 @@ importJs=false #启动server时是否引入dashboard工厂，默认true，分离
 
 **如果Dashboard独立启动**
 
-- 执行<kbd>kotlin browser</kdd> > <kbd>browserDevelopmentRun</kdd>
+- 执行<kbd>dashboard tasks</kdd> > <kbd>kotlin browser</kdd> > <kbd>browserDevelopmentRun</kdd>
 - http://localhost:8080
 
-#####4、测试
+##### 4、测试
 
 使用server/src/test/http/homeClient.http请求测试
 
-###∞、其他
+### 2、异常情况
+
+> 如果启动Spring出现java.lang.NoClassDefFoundError: com/xy/kotlin/sample/server/error/ServerException
+可以尝试使用**Invalidate Caches/ Restart**清除Idea缓存，然后使用**tasks/build/clean**清除工程缓存后重试
+
+这个应该是kotlin-multiplatform的Bug，在切换分支后残留的缓存文件导致
+
+### ∞、其他
 
 > [热加载](https://kotlinlang.org/docs/tutorials/javascript/dev-server-continuous-compilation.html) Arguments添加--continuous
 
-#####1、参考资料
+##### 1、参考资料
 
 - [Kotlin/Js官方示例](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
 - [Kotlin多平台官方示例](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)
@@ -54,7 +61,7 @@ importJs=false #启动server时是否引入dashboard工厂，默认true，分离
 - [React官方文档](https://zh-hans.reactjs.org/tutorial/tutorial.html#making-an-interactive-component)
 - [MaterialUi官方文档](https://material-ui.com/zh/getting-started/usage/)
 
-#####2、引用库
+##### 2、引用库
 
 - [spring-framework](https://github.com/spring-projects/spring-framework) SpringWebflux
 - [spring-boot](https://github.com/spring-projects/spring-boot) SpringBoot
