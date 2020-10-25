@@ -8,7 +8,7 @@ Kotlin/Js(前端) + Kotlin/SpringWebFlux(后端)
 
 ### 1、初始化
 
-#####1、本地添加**local.properties**文件
+##### 1、本地添加**local.properties**文件
 
 > 文件内容
 importJs=false #启动server时是否引入dashboard工厂，默认true，分离开发时设置为false提高编译数据
