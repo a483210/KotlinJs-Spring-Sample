@@ -8,12 +8,12 @@ Kotlin/Js(前端) + Kotlin/SpringWebFlux(后端)
 
 ### 1、初始化
 
-#####1、本地添加**local.properties**文件
+##### 1、本地添加**local.properties**文件
 
 > 文件内容
 importJs=false #启动server时是否引入dashboard工程，默认true，分离开发时设置为false提高编译数据
 
-#####2、环境配置
+##### 2、环境配置
 
 - 开发环境：<kbd>Modules Setting</kbd> > <kbd>Project</kbd> > <kbd>Project SDK</kbd> > <kbd>设置为Java1.8</kbd>
 
@@ -25,7 +25,7 @@ importJs=false #启动server时是否引入dashboard工程，默认true，分离
 
 其他看build.gradle
 
-#####3、启动
+##### 3、启动
 
 **importJs为True**
 
@@ -38,11 +38,11 @@ importJs=false #启动server时是否引入dashboard工程，默认true，分离
 - 执行<kbd>kotlin browser</kdd> > <kbd>browserDevelopmentRun</kdd>
 - http://localhost:8080
 
-#####4、测试
+##### 4、测试
 
 使用server/src/test/http/homeClient.http请求测试
 
-###∞、其他
+### ∞、其他
 
 > [热加载](https://kotlinlang.org/docs/tutorials/javascript/dev-server-continuous-compilation.html) Arguments添加--continuous
 
