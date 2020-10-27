@@ -43,7 +43,7 @@ importJs=false #启动server时是否引入dashboard工程，默认false，分�
 
 **如果Dashboard独立启动**
 
-- 执行<kbd>dashboard tasks</kdd> > <kbd>kotlin browser</kdd> > <kbd>browserDevelopmentRun</kdd>
+- 执行<kbd>dashboard tasks</kbd> > <kbd>kotlin browser</kbd> > <kbd>browserDevelopmentRun</kbd>
 - http://localhost:8080
 
 ##### 4、测试
