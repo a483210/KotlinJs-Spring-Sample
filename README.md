@@ -8,7 +8,7 @@ Kotlin/Js(前端) + Kotlin/SpringWebFlux(后端)
 
 ### 0、文章
 
-- 第一篇：[《搭建Kotlin-Multiplatform工程》](https://juejin.im/post/6888485745569628167/)
+- 第一篇：[《搭建Kotlin-Multiplatform工程》](https://segmentfault.com/a/1190000037644424)
 - 第二篇：《通过React + Spring实现前后台简单列表》
 - 第三篇：《通过Webpack + Gradle实现环境分离》
 
